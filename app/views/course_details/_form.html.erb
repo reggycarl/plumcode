@@ -1,0 +1,44 @@
+
+<%= simple_form_for(@course_detail) do |f| %>
+    <%= f.error_notification %>
+
+        <%= f.error_notification %>
+
+ <div class="panel-body">
+     <div class="position-center">
+
+      <%= f.association :a_course, collection: Course.all, label_method: :course_name, value_method: :id, include_blank: true, label: "Course:", style:"width:90%;", :input_html => {:class => 'form-control dropdown dropdown-toggle', style:"width:90%;float:center;"} %>
+
+      <%= f.input :course_description, required: true,input_html:{ class:"form-control",style:"width:90%;float:center;"} %>
+
+
+      <%= f.label :course_duration, "course_duration" %>
+      <br/>
+      <%= f.text_field :course_duration, class:"form-control",style:"width:90%;" %>
+
+
+ <%= f.label :lecture_hours, "lecture_hours" %>
+      <br/>
+      <%= f.text_field :lecture_hours, class:"form-control",style:"width:90%;" %>
+
+       <%= f.label :course_curriculum, "course_curriculum" %>
+      <br/>
+      <%= f.text_field :course_curriculum, class:"form-control",style:"width:90%;" %>
+     
+     
+
+       
+      <br/>
+      <br/>
+
+    </div>
+
+    <center>
+
+    <%= f.submit "Submit", class: "btn btn-primary", style: "width:auto" %>&nbsp;&nbsp;&nbsp;&nbsp;
+
+   
+
+    </center>
+    <% end %>
+

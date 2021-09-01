@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  <title>MedAppoint</title>
+  <%#= stylesheet_link_tag    'application', media: 'all'%>
+  <%#= javascript_include_tag 'application' %>
+<% if params[:action] != "welcome" %> 
+   <%= stylesheet_link_tag    'application', media: 'all' %>
+		<%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+     <meta name="description" content="Book All your medical appointments">
+    <meta name="author" content="DevMed App">
+    <meta name="copyright" content="Copyright © 2020 Devdex Software">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="title" content="Book All your medical appointments">
+    <meta property="og:image" content="" />
+    <meta property="og:title" content="Book Appoitments: DevMed App">
+    <meta property="og:description" content="Book All your medical appointments">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.medapp.devedexsoftware.com">
+    <meta name="keywords" content="Book Appoitments: DevMed App" />
+
+    <meta property="og:site_name" content="DevMed App">
+    <meta property="fb:app_id" content="">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:title" content="Book Appoitments: DevMed App">
+    <meta name="twitter:image" content="https://www.medapp.devedexsoftware.com">
+    <meta name="twitter:description" content="Book All your medical appointments">
+    
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+    
+
+  <link rel="stylesheet" href="/assets/iconsmind-s/css/iconsminds.css">
+    <link rel="stylesheet" href="/assets/simple-line-icons/css/simple-line-icons.css">
+
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685455/medapp/stylesheets/vendor/bootstrap.min_ap0rdp.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685431/medapp/stylesheets/vendor/bootstrap.rtl.only.min_v8h91x.css">
+  
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685455/medapp/stylesheets/vendor/perfect-scrollbar_fqyjil.css">
+
+  
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685455/medapp/stylesheets/vendor/nouislider.min_pvgz8s.css">
+     <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685428/medapp/stylesheets/vendor/bootstrap-datepicker3.min_ycezi1.css"> 
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685431/medapp/stylesheets/vendor/component-custom-switch.min_k9lcoq.css">
+    <link rel="stylesheet" href=" https://res.cloudinary.com/sahanana/raw/upload/v1586685425/medapp/stylesheets/main_p6eqjx.css">
+
+
+
+  <!--   FORMS -->
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685429/medapp/stylesheets/vendor/bootstrap-float-label.min_evshxh.css">
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685456/medapp/stylesheets/vendor/smart_wizard.min_cophyo.css">
+
+    <link rel="stylesheet" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685430/medapp/stylesheets/vendor/bootstrap-tagsinput_ypmnk8.css">
+
+ <!--    DATEPICKER -->
+
+     <link rel="stylesheet" type="text/css" media="screen" href="https://res.cloudinary.com/sahanana/raw/upload/v1586685423/medapp/stylesheets/bootstrap-datetimepicker_ir81t1.css">
+  
+
+  <%end%>
+  
+</head>
+<body >
+
+<%= render 'layouts/messages' %>
+<%= render 'layouts/navigation' %>
+<%= yield %>
+
+</body>
+</html>

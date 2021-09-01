@@ -1,0 +1,341 @@
+
+<!doctype html>
+<html lang="en">
+
+  <body>
+ 
+	<div class="main-banner">           			
+        <div class="hvrbox">
+            <img src="/assets/banner_img.jpg" alt="Mountains" class="hvrbox-layer_bottom">
+            <div class="hvrbox-layer_top">
+                <div class="container">
+                    <div class="overlay-text text-center">						
+                        <h3>The Future Begins Here!</h3>
+                        <p>Working collaboratively to ensure every student has a technical skill<br>to be prepared for the competitiveness of todays world of work.</p>
+                   
+                   <div class="slider-feature">
+						
+						<%= link_to "Enroll now!",apply_classes_path,:class=> "btn-small" %>
+
+					</div>		
+	
+                    </div>
+            	</div>
+        	</div>
+        </div>	                     
+    </div>
+
+    <div class="course-category-1x">
+		<div class="container">
+			<div class="row">				
+				<div class="col-md-6">
+					<div class="category-left left-image">
+						<div class="hvrbox">
+							<img src="/assets/1.jpg" alt="slide 1" class="hvrbox-layer_bottom">
+							<div class="hvrbox-layer_top">
+								<div class="hvrbox-text">
+									
+									<%= link_to "Introduction to Programming",all_courses_path %>
+									<h5></h5>								
+									<%= link_to "View Details",all_courses_path,:class=> "btn-small" %>
+								</div>
+							</div>
+						</div>				  
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="category-left right-image">
+								<div class="hvrbox">
+									<img src="/assets/web_dev.jpg" alt="slide 1" class="hvrbox-layer_bottom">
+									<div class="hvrbox-layer_top hvrbox-text">
+										<div class="hvrbox-text">
+											
+											<%= link_to "Web Development",all_courses_path %>
+									<h5></h5>								
+									<%= link_to "View Details",all_courses_path,:class=> "btn-small" %>
+										</div>
+									</div>
+								</div>				  
+							</div>						
+						</div>
+						<div class="col-md-6">
+							<div class="category-left right-image">
+								<div class="hvrbox">
+									<img src="/assets/2.jpg" alt="slide 1" class="hvrbox-layer_bottom">
+									<div class="hvrbox-layer_top hvrbox-text">
+										<div class="hvrbox-text">
+											
+										<%= link_to "Mobile Application Development",all_courses_path %>
+									<h5></h5>								
+									<%= link_to "View Details",all_courses_path,:class=> "btn-small" %>
+										</div>
+									</div>
+								</div>				  
+							</div>						
+						</div>
+						<div class="col-md-6">
+							<div class="category-left right-image">
+								<div class="hvrbox">
+									<img src="/assets/desktop.jpg" alt="slide 1" class="hvrbox-layer_bottom">
+									<div class="hvrbox-layer_top hvrbox-text">
+										<div class="hvrbox-text">
+																		
+											<%= link_to "Desktop Application Development",all_courses_path %>
+									<h5></h5>								
+									<%= link_to "View Details",all_courses_path,:class=> "btn-small" %>
+										</div>
+									</div>
+								</div>				  
+							</div>						
+						</div>
+						<div class="col-md-6">
+							<div class="category-left right-image">
+								<div class="hvrbox">
+									<img src="/assets/software.jpg" alt="slide 1" class="hvrbox-layer_bottom">
+									<div class="hvrbox-layer_top hvrbox-text">
+										<div class="hvrbox-text">
+										
+											<%= link_to "Software Tools & Infrastructures",all_courses_path %>
+									<h5></h5>								
+									<%= link_to "View Details",all_courses_path,:class=> "btn-small" %>
+										</div>
+									</div>
+								</div>				  
+							</div>						
+						</div>
+					</div>
+				</div>
+				<div class="category-feature">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="single-feature">
+									<img src="/assets/man-2.png" alt="slide 1">
+									<h4>Expert Instructors</h4>
+									<p>Our instructors are software engineers with a lot of experience with training and development beginners to achieve advanced level in coding. </p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="single-feature">
+									<img src="/assets/clock.png" alt="slide 1">
+									<h4>Skills Development</h4>
+									<p>We guarantee students to achieve a massive updgrade in skills after course. This we do due to our well prepared curriculum and our hands-on approach to the skill development. Everything is practical at Cybercity. </p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="single-feature">
+									<img src="/assets/pc.png" alt="slide 1">
+									<h4>Certification</h4>
+									<p>Students who complete the courses are awarded a professional certificate to certify their skill acquisition and give them advantage in securing a job or creating their own business </p>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="single-feature">
+									
+										<%= link_to "Get Started",apply_classes_path,:class=> "btn-small" %>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="course-1x">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="title-middle">
+						<h2>Cybercity Courses</h2>
+					</div>
+				</div>
+
+				 
+				  
+				<div class="col-md-12">	
+					<div class="all-course">
+						<div class="row">
+						<% @courses.each do |course| %>
+						  <div class="col-md-3 tile web">
+							<div class="single-course">
+								<div class="hvrbox">
+									<!-- <img src="/assets/1.jpg" alt="slide 1" class="hvrbox-layer_bottom"> -->
+									<%= link_to image_tag (course.course_image),:class=> "hvrbox-layer_bottom" %>
+									<div class="hvrbox-layer_top hvrbox-text">
+										<div class="hvrbox-text">																	
+											<!-- <a href="" class="btn-circle video"><i class="fas fa-play"></i></a> -->
+
+											<%= link_to "Preview Course", show_details_path(:id => course.id) %>
+											
+										</div>
+									</div>
+								</div>
+								<div class="single-course-content">
+									<!-- <a href="course-single-one.html">Introduction to Programming</a> -->
+									<%= link_to "#{course.course_name}", show_details_path(:id => course.id) %>
+									<p>By <%= course.tutor_name %> <span><del>GHC400</del> <b>GHC<%= course.amount%></b></span></p>
+									<h3>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i>
+										<i class="fas fa-star"></i> (5)
+										<!-- <span>Enroll: 128</span> -->
+									</h3>
+								</div>
+							</div>
+						  </div>
+						  <% end %>
+						  
+						  
+							<div class="col-md-12 text-center">
+								<%= link_to "Enroll now!",apply_classes_path,:class=> "btn-small" %>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="achive-goals-1x">
+		<div class="container">			
+			<div class="col-md-12">
+				<div class="title-middle">
+					<h2>Requirements to be part of the class</h2>
+					<p>CyberCity School is an open coding school for everyone ready to learn how to program and develop software. However, there are few things we require from potential students to be part of the school</p>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="single-goals">
+							<img src="/assets/icon-1.png" alt="slide 1">
+							<h4>Readiness to Learn</h4>
+							<p>Potential students of code should be ready to learn and discipline. We require students to display a sense of motivation to learn and achieve success at the end of the course </p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="single-goals">
+							<img src="/assets/icon-2.png" alt="slide 1">
+							<h4>50% payment before admission</h4>
+							<p>Potential coders are required to pay a 50% deposit of fee before the 3-month course begins. This a refundable amount as long as student dont attend any of the class. </p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="single-goals">
+							<img src="/assets/icon-4.png" alt="slide 1">
+							<h4>Have a personal Laptop</h4>
+							<p>As a pistol is to a soldier, same way every coder should have a laptop. We therefore require potential students to own a laptop to aid in the practical sessions of development. If you dont own one, dont be left out. Just contact us so we make a preparation for you. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="learning-path-1x">
+		<div class="container">
+			<div class="col-md-12">
+				<div class="title-middle">
+					<h2>Get Ahead With Learning Paths</h2>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="learning-path">
+
+					<div class="single-learning-path">
+						<div class="hvrbox">
+							<a href="#"><img src="/assets/1.jpg" alt="slide 1" class="hvrbox-layer_bottom"></a>
+							<div class="hvrbox-layer_top hvrbox-text blue">
+								<div class="hvrbox-text">
+										
+									<%= link_to "Become a Mobile App Developer",apply_classes_path %>						
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="single-learning-path">
+						<div class="hvrbox">
+							<a href="#"><img src="/assets/2.jpg" alt="slide 1" class="hvrbox-layer_bottom"></a>
+							<div class="hvrbox-layer_top hvrbox-text green">
+								<div class="hvrbox-text">
+										
+									<%= link_to "Become a Web Developer",apply_classes_path %>						
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="single-learning-path">
+						<div class="hvrbox">
+							<a href="#"><img src="/assets/3.jpg" alt="slide 1" class="hvrbox-layer_bottom"></a>
+							<div class="hvrbox-layer_top hvrbox-text red">
+								<div class="hvrbox-text">
+										
+										<%= link_to "Become a Software Engineer",apply_classes_path %>							
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="single-learning-path">
+						<div class="hvrbox">
+							<a href="#"><img src="/assets/desktop.jpg" alt="slide 1" class="hvrbox-layer_bottom"></a>
+							<div class="hvrbox-layer_top hvrbox-text yellow">
+								<div class="hvrbox-text">
+									
+
+									<%= link_to "Create your own software product",apply_classes_path %>							
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="single-learning-path">
+						<div class="hvrbox">
+							<a href="#"><img src="/assets/event-3.png" alt="slide 1" class="hvrbox-layer_bottom"></a>
+							<div class="hvrbox-layer_top hvrbox-text">
+								<div class="hvrbox-text">
+										
+									<%= link_to "Be part of the future",apply_classes_path %>						
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="cta-1x">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="cta-content">
+						<h3>Ready to Begin?</h3>
+						<p>Find subjects you're passionate about by browsing our course categories. Start <br> learning with top courses from industry experts.</p>
+						
+						<%= link_to "Start Learning",apply_classes_path,:class=> "btn-small" %>
+						<a  class="btn-small">Start Teaching</a>
+						
+						
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+
+	
+
+   
+	
+  </body>
+</html>       

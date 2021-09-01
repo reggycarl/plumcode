@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @apply_class.user_id %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @apply_class.reason %>
+</p>
+
+<p>
+  <strong>Skill level:</strong>
+  <%= @apply_class.skill_level %>
+</p>
+
+<%= link_to 'Edit', edit_apply_class_path(@apply_class) %> |
+<%= link_to 'Back', apply_classes_path %>

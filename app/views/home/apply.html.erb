@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="en">
+
+<body>	
+	<div class="page-banner">           			
+		<div class="hvrbox">
+			<img src="/assets/desktop.jpg" alt="Mountains" class="hvrbox-layer_bottom">
+			<div class="hvrbox-layer_top">
+				<div class="container">
+					<div class="overlay-text text-left">						
+						<h3>Apply - CyberCity Summer School 2019</h3>
+						
+					</div>
+				</div>
+			</div>
+		</div>	                     
+	</div>
+
+
+
+	<div class="sign-in-1x">
+		<div class="container">
+			<div class="form-container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="sign-in-form">
+							<!-- <h3>Apply - CyberCity Summer School 2019</h3> -->
+							<h3>Hello, <%= current_user.first_name  %> <br></h3>
+							<form>
+								<div class="row">	
+								<!-- 	<div class="col-md-6">	
+										<div class="single-input">
+												<div class="form-group">
+												<input type="text" class="form-control" placeholder="First Name" aria-label="Name">				    										    						    
+											</div>
+										</div>
+									</div> -->	
+										
+
+										<div class="col-md-6">
+										<div class="single-input">
+												<label >Choose your Skill level</label>  
+											<div class="form-group">							    
+												<select  class="form-control">
+													<option value="" selected="selected">Skill Level</option><option value="">Beginner</option><option value=""> Intermediary</option><option value="">Advanced</option>
+
+												</select>							    
+											</div>
+										</div>
+									</div> 		
+									<div class="col-md-12">
+										<div class="single-input">
+											<label >Let us know briefly why you want to join the class and your expectations</label> 															  
+											<div class="form-group">	
+
+												   <textarea id = "myTextArea"
+                  rows = "7"
+                  cols = "120" placeholder="Let us know briefly why you want to join the class and your expectation"> </textarea>
+										<!-- 	<%#= f.input :description, :label => false,placeholder: "Describe the kind of partnership you want?",as: :string,input_html: { class: "elementor-field elementor-size-sm  elementor-field-textual", row: "4" },validate: { presence: true, uniqueness: false } %> -->
+										</div>						    
+											</div>
+										</div>
+									<!-- </div> --> 
+
+								<div class="col-md-12">
+										
+											<h3>Cost : GHc 300 for 12weeks<br>
+											<h4>* To be qualified for the class, we require a 50% deposit. You can pay through mobile money  <a href=""> here!</a></h4></h3>	
+
+									</div>
+
+									<div class="col-md-12">
+										<div class="sign-in-btn sign-up-btn">								<a href="#" class="btn-small">Complete Application</a>
+	
+										</div>								
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="sign-in-right sign-up-right">
+							<a href="" class="btn-circle video"><i class="fas fa-play"></i></a>
+						</div>
+					</div>
+				</div>													
+			</div>
+		</div>
+	</div> 
+
+	<div class="cta-1x">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="cta-content">
+						<h3>Ready to Begin?</h3>
+						<p>Find subjects you're passionate about by browsing our online course categories. Start <br> learning top courses from industry Experts.</p>
+						<%= link_to "Start Learning",apply_classes_path,:class=> "btn-small" %>
+						<a  class="btn-small">Start Teaching</a>
+
+					</div>
+				</div>					
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>       

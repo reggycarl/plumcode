@@ -1,0 +1,88 @@
+
+
+
+
+
+
+<body class="background show-spinner no-footer"> 
+    <div class="fixed-background"></div>
+    <main>
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-12 col-md-10 mx-auto my-auto">
+                    <div class="card auth-card">
+                        <div class="position-relative image-side">
+                            <p class="text-white h2">MAGIC IS IN THE DETAILS</p>
+                            <p class="white mb-0">Please use this form to register.<br>If you are a member, please <a
+                                    href="#" class="white">Forgot Your Password?</a>.</p>
+                        </div>
+                        <div class="form-side"><a href="Dashboard.Default.html"><span class="logo-single"></span></a>
+                            <h6 class="mb-4">Forgot Your Password?</h6>
+                           <!--  <form> -->
+
+                          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+
+                            <label class="form-group has-float-label mb-4">
+                            <%= f.input :email,
+                                  required: false,
+                                              autofocus: true,
+                input_html: { class: "form-control"} %>
+                            <!-- <input class="form-control"> -->
+                                    <span>Email</span></label> 
+
+
+
+                                    
+
+
+
+
+                                <div class="d-flex justify-content-end align-items-center"><button
+                                        class="btn btn-primary btn-lg btn-shadow" type="submit">Send me reset password insrructions</button></div>
+
+                              <%end %>
+                              <%= link_to "Login", new_session_path(resource_name) ,:style=>"color: #007bff !important" %>
+
+                  
+
+                      <p>Don’t have an account? <%= link_to "Create one here!", new_user_registration_path,:class=>"text-color-4",:style=>"color: #007bff !important" %>
+                      </p>  
+                         <!--    </form> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    
+  <script src="/assets/vendor/jquery-3.3.1.min.js"></script>
+    <script src="/assets/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/Chart.bundle.min.js"></script>
+    <script src="/assets/vendor/chartjs-plugin-datalabels.js"></script>
+    <script src="/assets/vendor/moment.min.js"></script>
+    <script src="/assets/vendor/fullcalendar.min.js"></script>
+    <script src="/assets/vendor/datatables.min.js"></script>
+    <script src="/assets/vendor/perfect-scrollbar.min.js"></script>
+    <script src="/assets/vendor/glide.min.js"></script>
+    <script src="/assets/vendor/progressbar.min.js"></script>
+    <script src="/assets/vendor/jquery.barrating.min.js"></script>
+    <script src="/assets/vendor/select2.full.js"></script>
+    <script src="/assets/vendor/nouislider.min.js"></script>
+  <script src="/assets/vendor/bootstrap-datepicker.js"></script> 
+    <script src="/assets/vendor/Sortable.js"></script>
+    <script src="/assets/vendor/mousetrap.min.js"></script>
+    <script src="/assets/dore.script.js"></script>
+    <script src="/assets/scripts.js"></script>
+ 
+    <script src="/assets/vendor/bootstrap-tagsinput.min.js"></script>
+    <script src="/assets/vendor/jquery.smartWizard.min.js"></script>
+    <script src="/assets/vendor/jquery.validate/jquery.validate.min.js"></script>
+    <script src="/assets/vendor/jquery.validate/additional-methods.min.js"></script>
+
+     <script src="/assets/vendor/bootstrap-notify.min.js"></script>
+ 
+</body>
+

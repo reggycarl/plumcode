@@ -1,0 +1,6 @@
+<% flash.each do |key, value| %>
+    <div align="center" id="flash" class="col-11 col-sm-3 alert alert-primary animated fadeInDown-<% if key.to_s == 'notice' %><%= 'info' %><% elsif key.to_s == 'success' %><%= 'success' %><% else key.to_s == 'danger' %><%= 'danger' %><% end %>">
+        <button  aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+        <%= value %>
+    </div>
+<% end %>

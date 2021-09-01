@@ -1,0 +1,63 @@
+<section id="main-content">
+	<section class="wrapper">
+
+		<div class="table-agile-info">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Students Applied
+				</div>
+				<div style="overflow-x:auto;">
+					<table class="table" ui-jq="footable" ui-options='{
+					"paging": {
+					"enabled": true
+					},
+					"filtering": {
+					"enabled": true
+					},
+					"sorting": {
+					"enabled": true
+					}}'>
+						<thead>
+							<tr>
+
+								<th>No</th>
+								<th>Fullname</th>
+								<th>Mobile number</th>
+								<th>Email</th>
+								<th>Skill Level</th>
+								<th>Reason</th>
+								<th>Date</th>
+								
+
+							</tr>
+						</thead>
+						<tbody>
+							<% count=1 %>
+
+							<% @list_apply_students.each do |student| %>
+							<tr>
+
+								<td><%= count %></td>
+								<td><%= student.last_name + " " +  student.first_name %></td>
+								<td><%= student.mobile_number %></td>
+								<td><%= student.email %></td>
+								<td><%= student.skill_level %></td>
+								<td><%= student.reason %></td>
+								<td><%= student.created_at.strftime('%F %R') %></td>
+
+							</tr>
+							<% count=count+1 %> 
+							<% end %>
+
+						</tbody>
+
+					</table>
+
+					<br>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+</section>

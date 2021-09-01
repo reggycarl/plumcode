@@ -1,0 +1,97 @@
+
+
+<body class="background show-spinner no-footer"> 
+    <div class="fixed-background"></div>
+    <main>
+        <div class="container">
+            <div class="row h-100">
+                <div class="col-12 col-md-10 mx-auto my-auto">
+                    <div class="card auth-card">
+                        <div class="position-relative image-side">
+                            <p class="text-white h2">YOUR HEALTH IN YOUR HANDS</p>
+                            <p class="white mb-0">Please use this form to register.<br></p>
+                        </div>
+                        <div class="form-side"><a href=""><span class="logo-single"></span></a>
+                            <h6 class="mb-4">Sign Up</h6>
+                           <!--  <form> -->
+
+                           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+                                <label class="form-group has-float-label mb-4">
+                            <%= f.input :fullname,
+                                  required: true,
+                                              autofocus: true,
+                input_html: { class: "form-control"} %>
+                            <!-- <input class="form-control"> -->
+                                    <span>Fullname</span></label> 
+
+                              <label class="form-group has-float-label mb-4">
+                            <%= f.input :mobile_number,
+                                  required: true,
+                                              autofocus: true,
+                input_html: { class: "form-control"} %>
+                            <!-- <input class="form-control"> -->
+                                    <span>Mobile Number</span></label> 
+
+                            <label class="form-group has-float-label mb-4">
+                            <%= f.input :email,
+                                  required: true,
+                                              autofocus: true,
+                input_html: { class: "form-control"} %>
+                            <!-- <input class="form-control"> -->
+                                    <span>Email</span></label> 
+
+
+
+                                         <label class="form-group has-float-label mb-4">
+                        
+
+
+
+                   <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { class: "form-control", autocomplete: "new-password" } %>
+
+                            <!-- <input class="form-control"> -->
+                                    <span>New Password</span></label> 
+
+
+
+                                   <label class="form-group has-float-label mb-4">
+                        
+
+
+
+                 <%= f.input :password_confirmation,
+                required: true,
+                input_html: {class: "form-control", autocomplete: "new-password" } %>
+
+                            <!-- <input class="form-control"> -->
+                                    <span>Confirm Password</span></label> 
+
+                                    <%= f.input :role_id, :as=> :hidden, input_html: {value: "1"}, class:"form-control" %>
+
+
+
+
+                                <div class="d-flex justify-content-end align-items-center"><button
+                                        class="btn btn-primary btn-lg btn-shadow" type="submit">SIGN UP</button></div>
+
+                              <%end %>
+                             <!--  <%#= link_to "Forgot your password?", new_password_path(resource_name) ,:style=>"color: #007bff !important" %> -->
+
+                      
+                      <p>Already have an account? <%= link_to "Login here", new_session_path(resource_name),:class=>"text-color-4",:style=>"color: #007bff !important" %>
+                      </p>  
+                         <!--    </form> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+ 
+</body>

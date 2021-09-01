@@ -1,0 +1,97 @@
+
+	<!doctype html>
+	<html lang="en">
+
+	<body>
+		
+
+
+		<div class="main-banner course-list-banner">           			
+			<div class="hvrbox">
+				<!-- <img src="/assets/banner-1.png" alt="Mountains" class="hvrbox-layer_bottom"> -->
+				 <img src="/assets/desktop.jpg" alt="Mountains" class="hvrbox-layer_bottom">
+				<div class="hvrbox-layer_top">
+					<div class="container">
+						<div class="overlay-text text-center">						
+							<h3><b>ALL</b> PRACTICAL COURSES!</h3>
+							
+						</div>
+					</div>
+				</div>
+			</div>	                     
+		</div>
+
+		<div class="course-header-1x">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-12">
+						
+
+						<div class="course-grid-list">
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+									<div class="all-course-list">
+										<% @courses.each do |course| %>
+										<div class="media">
+											<div class="media-left-image">
+												<div class="hvrbox">
+													<!-- <img src="/assets/1.jpg" alt="slide 1" class="hvrbox-layer_bottom"> -->
+													<%= link_to image_tag (course.course_image),:class=> "hvrbox-layer_bottom" %>
+
+													<div class="hvrbox-layer_top hvrbox-text">
+														<div class="hvrbox-text">								<%= link_to "Preview Course", show_details_path(:id => course.id) %>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="media-body">
+												<h2><%= link_to "#{course.course_name}", show_details_path(:id => course.id) %></h2>
+												<h5>By <%= course.tutor_name %></h5>
+												<h4>GHC<%= course.amount%> <del>GHC400</del></h4>
+												
+
+												<%= link_to "View Course", show_details_path(:id => course.id),:class=>"btn-bordered" %>
+												<h3>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i>
+													<i class="fas fa-star"></i> (5)
+													
+												</h3>											
+											</div>
+										</div>
+										<% end %>
+										
+									</div>
+								</div>
+
+								
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="cta-1x">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="cta-content">
+							<h3>Ready to Begin?</h3>
+							<p>Find subjects you're passionate about by browsing our online course categories. Start <br> learning top courses with industry Experts.</p>
+							<%= link_to "Start Learning",apply_classes_path,:class=> "btn-small" %>
+						<a  class="btn-small">Start Teaching</a>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+
+		
+	</body>
+	</html>       

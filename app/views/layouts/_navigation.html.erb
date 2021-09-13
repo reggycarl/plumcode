@@ -1,267 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- <head>
- 
-</head> -->
+<style>
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
- <% if params[:action] != "welcome" %>
-<body id="app-container" class="menu-default show-spinner">
-    <nav class="navbar fixed-top">
-        <div class="d-flex align-items-center navbar-left"><a href="#" class="menu-button d-none d-md-block"><svg
-                    class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
-                    <rect x="0.48" y="0.5" width="7" height="1" />
-                    <rect x="0.48" y="7.5" width="7" height="1" />
-                    <rect x="0.48" y="15.5" width="7" height="1" /></svg> <svg class="sub"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
-                    <rect x="1.56" y="0.5" width="16" height="1" />
-                    <rect x="1.56" y="7.5" width="16" height="1" />
-                    <rect x="1.56" y="15.5" width="16" height="1" /></svg> </a><a href="#"
-                class="menu-button-mobile d-xs-block d-sm-block d-md-none"><svg xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 26 17">
-                    <rect x="0.5" y="0.5" width="25" height="1" />
-                    <rect x="0.5" y="7.5" width="25" height="1" />
-                    <rect x="0.5" y="15.5" width="25" height="1" /></svg></a>
+* {
+  margin: 0;
+  padding: 0;
+}
 
-                    <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1"
-                        data-toggle="tooltip" data-placement="left" title="Dark Mode"><input class="custom-switch-input"
-                            id="switchDark" type="checkbox" checked="checked"> <label class="custom-switch-btn"
-                            for="switchDark"></label></div>
+body {
+  background: #fff;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container nav {
+  width: 100%;
+  height: 75px;
+  background: #444759;
+  border-bottom: 1px solid #3d3f50;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+nav ul {
+  float:right;
+  width: 250px;
+  height: 100%;
+
+  list-style: none;
+  transition: all 0.5s ease;
+}
+
+nav ul li {
+  width: 300px%;
+  float: left;
+  text-align: center;
+  padding: 24px 15px;
+  cursor: pointer;
+  color: #eee;
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+
+  position: relative;
+}
+
+nav ul li:hover {
+  color: #ea3b50;
+  box-shadow: inset 0 5px #ea3b50;
+}
+
+/* sub-menu */
+
+nav ul li ul.sub-nav {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  width: 140%;
+  height: 280px;
+  background: #444759;
+  border-top: 1px solid #3d3f50;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.14), -1px 0px 1px rgba(0, 0, 0, 0.14);
+  visibility: hidden;
+  opacity: 0;
+}
+
+nav ul li ul.sub-nav li {
+  color: #eee;
+  font-size: 14px;
+  width: 100%;
+  padding: 15px 0;
+}
+
+nav ul li ul.sub-nav li:hover {
+  color: #ea3b50;
+  box-shadow: 0 0;
+}
+
+nav ul li:hover ul.sub-nav {
+  visibility: visible;
+  opacity: 1;
+}
+
+#color_white{
+  color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<div class="container">
+  <nav>
+  <img src="/assets/plumlogo.jpeg" alt="Mountains"width="150px" >
+    <ul>
+      <li><%= link_to "Home ",root_path, id:"color_white" %>
+      </li>
+      <% if user_signed_in? %>
+      <li>User
+        <ul class="sub-nav">
+        <li><%= link_to 'Edit Profile'.html_safe,edit_user_registration_path, id:"color_white" %></li>
+          <li><%= link_to 'Log out',destroy_user_session_path, :method=> 'delete',id:"color_white"%></li>
          
-        </div><a class="navbar-logo" href="home/index"><span class="logo d-none d-xs-block"></span> <span
-                class="logo-mobile d-block d-xs-none"></span></a>
-        <div class="navbar-right">
+          <%else%>
+         
+          <li> <%= link_to "Login", new_user_session_path,id:"color_white" %></li>
+         
+        </ul>
+      </li>
+      <% end %>
+     
 
-            <div class="header-icons d-inline-block align-middle">
-                <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                  
-                </div>
-              
-                <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button"
-                    id="fullScreenButton"><i class="simple-icon-size-fullscreen"></i> <i
-                        class="simple-icon-size-actual"></i></button>
-            </div>
-            <% if user_signed_in? %>
-            <div class="user d-inline-block"><button class="btn btn-empty p-0" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><span class="name">Hi, <%= current_user.fullname %></span> <span><img
-                            alt="Profile Picture" src="https://res.cloudinary.com/sahanana/image/upload/v1586685522/medapp/images/profile-pic-l_ppksiy.jpg"></span></button>
-                <div class="dropdown-menu dropdown-menu-right mt-3">
-
-             <% if current_user.role_id == 2 %>
-
-                    <%= link_to 'Roles'.html_safe,roles_path, :class=>" dropdown-item" %>
-
-                      <%= link_to 'Users'.html_safe,users_path, :class=>" dropdown-item" %>
-
-                    <%= link_to 'Edit Profile'.html_safe,edit_user_registration_path, :class=>" dropdown-item" %>
-
-                    <%= link_to 'Log out',destroy_user_session_path, :method=> 'delete',:class=>"dropdown-item" %>
-            <%else%>
-             <%= link_to 'Edit Profile'.html_safe,edit_user_registration_path, :class=>" dropdown-item" %>
-
-                    <%= link_to 'Log out',destroy_user_session_path, :method=> 'delete',:class=>"dropdown-item" %>
-            <%end%>
-            
-                </div>
-            </div>
-            <%else%>
-              <div class="user d-inline-block">
-
-             <!--  <button class="btn btn-empty p-0" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false"><span class="name">Guest Acco</span> <span><img
-                            alt="Profile Picture" src="/assets/profile-pic-l.jpg"></span>
-            </button> -->
-
-             <%= link_to "Login", new_user_session_path,:class=>"btn btn-empty p-0" %>
-
-               <!--  <div class="dropdown-menu dropdown-menu-right mt-3">
-                  
-
-                     <%#= link_to "Login", new_session_path(resource_name) ,:class=>"dropdown-item" %>
-            
-                </div> -->
-            </div>
-
-            <%end %>
-        </div>
-    </nav>
-    <div class="menu">
-        <div class="main-menu">
-            <div class="scroll">
-                <ul class="list-unstyled">
-                    <li class="active"><a href="#dashboard"><i class="iconsminds-dashboard"></i>
-                            <span>Dashboard</span></a></li>
-                    <li><a href="#layouts"><i class="iconsminds-digital-drawing"></i> Appointments <span class="badge badge-light"><%= @total_appointment %></span></a></li>
-                    <li><a href="#applications"><i class="iconsminds-credit-card"></i> Payments</a></li>
-                   
-                </ul>
-            </div>
-        </div>
-
-        <div class="sub-menu">
-            <div class="scroll">
-                <ul class="list-unstyled" data-link="dashboard">
-                   
-                    <li class="active">
-                    
-                    <i class="iconsminds-air-balloon-1"></i>
-
-                     <span ><%= link_to "Dashboard",home_index_path,:class=>"d-inline-block" %></span>
-
-                        </li>
-
-                                <li class="active"><a href="/"><i class="iconsminds-home"></i> <span
-                                class="d-inline-block">HomePage</span></a></li>
-                </ul>
-
-                <ul class="list-unstyled" data-link="layouts" id="layouts">
-                 <% if user_signed_in? %>
-                    <li><a href="#" data-toggle="collapse" data-target="#collapseAuthorization" aria-expanded="true"
-                            aria-controls="collapseAuthorization" class="rotate-arrow-icon opacity-50"><i
-                                class="simple-icon-arrow-down"></i> <span
-                                class="d-inline-block">Medical Appointments</span></a>
-                        <div id="collapseAuthorization" class="collapse show">
-                            <ul class="list-unstyled inner-level-menu">
-                                <li>
-                                
-                                <i class="iconsminds-stethoscope"></i> <span
-                                        ><%= link_to "View History",view_med_appointment_path,:class=>"d-inline-block" %></span> <span class="badge badge-secondary"><%= @med_count %></span>
-
-                                        </li>
-                                
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true"
-                            aria-controls="collapseProduct" class="rotate-arrow-icon opacity-50"><i
-                                class="simple-icon-arrow-down"></i> <span class="d-inline-block">Video Consultations</span></a>
-                        <div id="collapseProduct" class="collapse show">
-                            <ul class="list-unstyled inner-level-menu">
-                                <li><i class="iconsminds-video"></i>
-                                <span
-                                        ><%= link_to "View History",view_video_appointment_path,:class=>"d-inline-block" %></span> <span class="badge badge-secondary"><%= @video_count %></span> </li>
-                                
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#" data-toggle="collapse" data-target="#collapseProfile" aria-expanded="true"
-                            aria-controls="collapseProfile" class="rotate-arrow-icon opacity-50"><i
-                                class="simple-icon-arrow-down"></i> <span class="d-inline-block">Homecare Consults</span></a>
-                        <div id="collapseProfile" class="collapse show">
-                            <ul class="list-unstyled inner-level-menu">
-                                <li><i class="iconsminds-home-1"></i>
-                                 <span
-                                        ><%= link_to "View History",view_home_appointment_path,:class=>"d-inline-block" %></span>
-
-                                <span class="badge badge-secondary"><%= @home_count %></span></li>
-                             
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#" data-toggle="collapse" data-target="#collapseBlog" aria-expanded="true"
-                            aria-controls="collapseBlog" class="rotate-arrow-icon opacity-50"><i
-                                class="simple-icon-arrow-down"></i> <span class="d-inline-block">Phone Consults</span></a>
-                        <div id="collapseBlog" class="collapse show">
-                            <ul class="list-unstyled inner-level-menu">
-                                <li><i class="iconsminds-smartphone-4"></i> 
-                                    <span
-                                        ><%= link_to "View History",view_phone_appointment_path,:class=>"d-inline-block" %></span>
-
-
-
-                                <span class="badge badge-secondary"><%= @phone_count %></span></li>
-                               
-                            </ul>
-                        </div>
-                    </li>
-
-                       <%else%>
-                                  
-
-
-
-                                  <%= link_to '<i class="iconsminds-air-balloon-1"></i> &nbsp; Login To View'.html_safe,new_user_session_path %>
-            <%end%>
-                </ul>
-                <ul class="list-unstyled" data-link="applications">
-                 <% if user_signed_in? %>
-                    <li><i class="simple-icon-credit-card"></i> 
-
-                    <span
-                                        ><%= link_to "Payment Transactions",momo_payments_path,:class=>"d-inline-block" %></span>
-</li>
-
-                                 <%else%>
-                                  
-
-
-
-                                  <%= link_to '<i class="iconsminds-air-balloon-1"></i> &nbsp; Login To View'.html_safe,new_user_session_path %>
-                                 
-                    <%end%>
-                </ul>
-             
-            </div>
-        </div>
-       
-    </div>
-
-    <footer class="page-footer">
-        <div class="footer-content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-sm-6">
-                        <p class="mb-0 text-muted"><a href="https://www.devdexsoftware.com" target="_blank">Devdex Software </a></p>
-                    </div>
-                   
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685486/medapp/javascripts/vendor/bootstrap.bundle.min_p8qqjg.js"></script>
-
-    </script>
-     <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/perfect-scrollbar.min_lknb38.js"></script>
- 
-
-    <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/progressbar.min_ymgruj.js"></script>
-
-    <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685486/medapp/javascripts/vendor/jquery.barrating.min_pntots.js"></script>
-
-     <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685489/medapp/javascripts/vendor/select2.full_wxcuyz.js"></script> 
-    <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/nouislider.min_vooyso.js"></script>
- 
-    <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685488/medapp/javascripts/vendor/Sortable_p6vmgb.js"></script>
-    <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685487/medapp/javascripts/vendor/mousetrap.min_fe4rry.js"></script>
-
-
-    <!--   <script src="/assets/dore.script.js"></script> -->
-    
-     <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685484/medapp/javascripts/dore.script_g7xpbd.js"></script>
-   
-    <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685483/medapp/javascripts/scripts_mphfcd.js"></script>
-
- <!--    FORMS -->
- 
-
-
-<!--     NOTIFY -->
-
-     <script src="https://res.cloudinary.com/sahanana/raw/upload/v1586685484/medapp/javascripts/vendor/bootstrap-notify.min_dzvx1j.js"></script>
-<!-- 
-     DATEPICKER -->
-
-    <script type="text/javascript" src="https://res.cloudinary.com/sahanana/raw/upload/v1586685484/medapp/javascripts/bootstrap-datetimepicker_bsqd1z.js"></script>
-  <!--   <script src="/assets/bootstrap-datetimepicker.js"></script> -->
-
-
-    
-
+      
+    </ul>
+  </nav>
   
-</body>
+  <div class="header"></div>
+</div>
 
-<%end%>
-
-</html>

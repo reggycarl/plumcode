@@ -19,12 +19,19 @@
 
 
                                 <label class="form-group has-float-label mb-4">
-                            <%= f.input :fullname,
+                            <%= f.input :first_name,
                                   required: true,
                                               autofocus: true,
                 input_html: { class: "form-control"} %>
                             <!-- <input class="form-control"> -->
-                                    <span>Fullname</span></label> 
+                                    <span>Last Name</span></label> 
+                                    <label class="form-group has-float-label mb-4">
+                                    <%= f.input :last_name,
+                                          required: true,
+                                                      autofocus: true,
+                        input_html: { class: "form-control"} %>
+                                    <!-- <input class="form-control"> -->
+                                            <span>First Name</span></label> 
 
                               <label class="form-group has-float-label mb-4">
                             <%= f.input :mobile_number,
@@ -71,7 +78,7 @@
                             <!-- <input class="form-control"> -->
                                     <span>Confirm Password</span></label> 
 
-                                    <%= f.input :role_id, :as=> :hidden, input_html: {value: "1"}, class:"form-control" %>
+                                   
 
 
 

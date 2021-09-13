@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190607154818) do
+ActiveRecord::Schema.define(version: 20210902152757) do
 
   create_table "apply_classes", force: :cascade do |t|
     t.string   "user_id",     limit: 255
@@ -19,16 +19,20 @@ ActiveRecord::Schema.define(version: 20190607154818) do
     t.string   "skill_level", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "fullname",    limit: 255
+    t.integer  "mobile",      limit: 4
+    t.string   "email",       limit: 255
+    t.integer  "student_id",  limit: 4
   end
 
   create_table "course_details", force: :cascade do |t|
     t.integer  "course_id",          limit: 4
-    t.text     "course_description", limit: 65535
+    t.string   "course_description", limit: 255
     t.string   "course_duration",    limit: 255
     t.string   "lecture_hours",      limit: 255
-    t.text     "course_curriculum",  limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "course_curriculum",  limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "courses", force: :cascade do |t|
@@ -51,10 +55,6 @@ ActiveRecord::Schema.define(version: 20190607154818) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
-    t.string   "first_name",             limit: 255
-    t.string   "last_name",              limit: 255
-    t.string   "gender",                 limit: 255
-    t.string   "mobile_number",          limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

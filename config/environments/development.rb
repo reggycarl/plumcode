@@ -46,43 +46,38 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   
-#   
-  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  # config.action_mailer.default :charset => "utf-8"
-   # config.action_mailer.perform_deliveries = true
-   # config.action_mailer.raise_delivery_errors = true  
-  # config.action_mailer.delivery_method = :smtp
-   # config.action_mailer.smtp_settings = {
-      # :address              => "smtp.gmail.com",
-      # :port                 => 587,
-      # :domain => 'cybercityschool.com',
-      # :user_name            => 'info@cybercityschool.com', 
-      # :password             => 'cybercity1',
-      # :authentication       => 'plain',
-       # :enable_starttls_auto => true 
-       # }
-#        
-       
-       
-       
-       config.action_mailer.default_url_options = { :host => 'cybercityschool.com' }
-  config.action_mailer.default :charset => "utf-8"
-   config.action_mailer.perform_deliveries = true
-   config.action_mailer.raise_delivery_errors = true  
+  
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'example.com',
+    user_name:            'reggycarl74@gmail.com',
+    password:             'Germany123456',
+    authentication:       'plain',
+    enable_starttls_auto: true }
+  
+       
+       
+       
+#        config.action_mailer.default_url_options = { :host => 'cybercityschool.com' }
+#   config.action_mailer.default :charset => "utf-8"
+#    config.action_mailer.perform_deliveries = true
+#    config.action_mailer.raise_delivery_errors = true  
+#   config.action_mailer.delivery_method = :smtp
    
-        config.action_mailer.smtp_settings = {
-address:              'smtp.zoho.com',
-port:                 '465',
-domain:               'cybercityschool.com',
-user_name:            'info@cybercityschool.com',
-password:             'Cybercity1!',
-authentication:       :plain,
-enable_starttls_auto: true,
-openssl_verify_mode:  'none',
-ssl:                   true,
-tls:                   true
-}
+#         config.action_mailer.smtp_settings = {
+# address:              'smtp.zoho.com',
+# port:                 '465',
+# domain:               'cybercityschool.com',
+# user_name:            'info@cybercityschool.com',
+# password:             'Cybercity1!',
+# authentication:       :plain,
+# enable_starttls_auto: true,
+# openssl_verify_mode:  'none',
+# ssl:                   true,
+# tls:                   true
+# }
 
 
 

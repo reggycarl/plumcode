@@ -13,12 +13,12 @@ class User < ActiveRecord::Base
 
 
 
-           devise :database_authenticatable, :registerable,
+          devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
-         after_create :send_admin_mail
-  def send_admin_mail
-    UserMailer.welcome_to_cybercity(self).deliver_now
-    UserMailer.alert_cybercity(self).deliver_now  
-  end
+  #        after_create :send_admin_mail
+  # def send_admin_mail
+  #   UserMailer.welcome_to_cybercity(self).deliver_now
+  #   UserMailer.alert_cybercity(self).deliver_now  
+  # end
 end

@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: 'info@cybercityschool.com'
+  default from: 'reggycarl74@yahoo.com'
   def welcome_to_cybercity(user)
     @user = user
     puts "---------------------------------------"
@@ -38,14 +38,14 @@ class UserMailer < ApplicationMailer
   def alert_cybercity(fullname)
    @fullname = fullname
 
-    mail(to: "info@cybercityschool.com,nana.osafo.bosompem@gmail.com", subject: 'CyberCity Signup ALERT!')
+    mail(to: "nana.osafo.bosompem@gmail.com", subject: 'CyberCity Signup ALERT!')
 
   end
 
   def alert_cybercity_after_apply(fullname,email)
     @fullname = fullname
     @email = email
-    mail(to: "info@cybercityschool.com,nana.osafo.bosompem@gmail.com", subject: 'CyberCity User Applied ALERT!')
+    mail(to: "nana.osafo.bosompem@gmail.com", subject: 'CyberCity User Applied ALERT!')
 
   end
 
